@@ -19,6 +19,7 @@ class Community(db.Model):
     name = db.Column(db.String, nullable=False)
     img = db.Column(db.String)
     role = db.Column(db.String(20))
+    url = db.Column(db.String);
 
     def __repr__(self):
         return f'Community Name: {self.name}'
@@ -31,4 +32,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)

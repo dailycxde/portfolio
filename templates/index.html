@@ -12,7 +12,7 @@
 
     <body>
         <header name="s1">
-            <div>h-Shkoukani</div>
+            <h id="mainh"><div>h-Shkoukani</div></h>
             <nav>
                 <ul class="nav">
                     <li><a href="#">ABOUT ME</a></li>
@@ -64,11 +64,13 @@
                 </div>
                 <div class="projgrid">
                     {% for project in projects %}
-                    <div id="i">
-                        <div class="it">{{ project.name }}</div>
-                        <div class="ii"><img src="{{ project.img }}"></div>
-                        <div class="id">{{ project.desc }}</div>
-                    </div>
+                    
+                        <div id="i">
+                            <div class="it">{{ project.name }}</div>
+                            <div class="ii"><img src="{{ project.img }}"></div>
+                            <div class="id">{{ project.desc }}</div>
+                        </div>
+                    
                     {% endfor %}
                 </div>
             </div>
@@ -81,11 +83,13 @@
                 </div>
                 <div class="projgrid">
                     {% for community in communities %}
-                    <div id="i">
-                        <div class="it">{{ community.name }}</div>
-                        <div class="ii"><img src="{{ community.img }}"></div>
-                        <div class="id">{{ community.role }}</div>
-                    </div>
+                    <a style="text-decoration: none;" href="{{ community.url }}">
+                        <div id="i">
+                            <div class="it">{{ community.name }}</div>
+                            <div class="ii"><img src="{{ community.img }}"></div>
+                            <div class="id">{{ community.role }}</div>
+                        </div>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
@@ -134,6 +138,21 @@
                     }
                 });
             });
+
+
+            const button = document.getElementById('mainh');
+
+            handleBottomView = function (){
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                })
+                console.log('here');
+            }
+
+            button.addEventListener('click', handleBottomView);
+
+
         </script>
 
     </body>
